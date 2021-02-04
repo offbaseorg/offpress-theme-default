@@ -83,7 +83,7 @@
       main {
         margin: 0px auto;
       }
-      main > :not(img):not(blockquote) {
+      main > :not(img):not(blockquote):not(ol):not(ul) {
         padding-left: 10px;
         padding-right: 10px;
         box-sizing: border-box;
@@ -111,6 +111,8 @@
         font-family: Georgia;
         font-style: italic;
         padding-left: 20px;
+        width: 100%;
+        box-sizing: border-box;
       }
       pre {
         background: rgba(0,0,0,0.8);
