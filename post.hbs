@@ -1,0 +1,164 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{data.title}}" />
+    <meta name="twitter:description" content="{{data.description}}" />
+    <meta name="twitter:image" content="{{config.settings.BASE}}{{data.image}}" />
+    <meta property="og:type"   content="website" />
+    <meta property="og:title" content="{{data.title}}" />
+    <meta property="og:description" content="{{data.description}}" />
+    <meta property="og:image" content="{{config.settings.BASE}}{{data.image}}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        margin: 0;
+        font-family: Sans-serif;
+        font-size: 16px;
+        line-height: 20px;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        background: white;
+        color: rgba(0,0,0,0.7);
+      }
+      main > hr {
+        background: rgba(0,0,0,0.1);
+        border: none;
+        height: 1px;
+        margin: 40px auto !important;
+      }
+      h1 {
+        font-size: 40px;
+        line-height: 50px;
+      }
+      h2 {
+        font-size: 30px;
+        line-height: 40px;
+      }
+      h3 {
+        font-size: 20px;
+        line-height: 30px;
+      }
+      nav {
+        padding: 60px 10px;
+        margin: 0 auto;
+        text-align: left;
+        max-width: 800px;
+        box-sizing: border-box;
+      }
+      nav h1 {
+        margin: 0;
+        font-size: 30px;
+        line-height: 50px;
+        letter-spacing: -1px;
+        display: inline-block;
+        font-family: georgia;
+        font-style: italic;
+      }
+      a {
+        color: cornflowerblue;
+        text-decoration: none;
+      }
+      nav h1 a {
+        color: rgba(0,0,0,0.8);
+      }
+      h1 a {
+        text-decoration: none;
+      }
+      header {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+      header h1 {
+        letter-spacing: -3px;
+        font-size: 50px;
+        line-height: 60px;
+        margin: 0;
+        text-transform: lowercase;
+        color: rgba(0,0,0,0.8);
+      }
+      main {
+        margin: 0px auto;
+      }
+      main > :not(img):not(blockquote) {
+        padding-left: 10px;
+        padding-right: 10px;
+        box-sizing: border-box;
+      }
+      main > .full {
+        max-width: 100% !important;
+      }
+      main > .medium {
+        max-width: 1192px !important;
+      }
+      main > * {
+        display: block;
+        max-width: 800px;
+        width: 100%;
+        margin: 20px auto !important;
+      }
+      main img {
+        width: 100%;
+      }
+      blockquote {
+        font-size: 20px;
+        line-height: 28px;
+        margin: 30px 0;
+        box-shadow: inset 3px 0 0 0 black;
+        font-family: Georgia;
+        font-style: italic;
+        padding-left: 20px;
+      }
+      pre {
+        background: rgba(0,0,0,0.8);
+        padding: 10px;
+        overflow: auto;
+        color: white;
+      }
+      .flexible {
+        flex-grow: 1;
+      }
+      .meta {
+        display: flex;
+        max-width: 800px;
+        color: rgba(0,0,0,0.6);
+        margin: 0 auto;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+      .button {
+        text-decoration: none;
+        color: rgba(0,0,0,0.5);
+      }
+      .bottom {
+        padding: 50px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <h1><a href="../..">{{name}}</a></h1>
+    </nav>
+    <header><h1>{{data.title}}</h1></header>
+    <div class='meta'>
+      <div class='updated'>{{data.updated}}</div>
+      <div class='flexible'></div>
+    </div>
+    <main>{{{content}}}</main>
+    <div class='bottom'>
+      powered by <a href="https://offpress.app">offpress</a>
+    </div>
+    <scr{{!}}ipt src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"></scr{{!}}ipt>
+    <scr{{!}}ipt>
+      document.querySelectorAll(".updated").forEach((el) => {
+        let timestamp = parseInt(el.textContent)
+        let ago = timeago.format(timestamp)
+        el.textContent = ago;
+      })
+    </scr{{!}}ipt>
+  </body>
+</html>
